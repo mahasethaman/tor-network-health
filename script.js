@@ -20,6 +20,15 @@ fetch(API_URL)
     li.className = data.regions[region];
     regionsUl.appendChild(li);
   }
+
+    const trendP = document.getElementById("trend");
+
+    let trendText = "➖ Stable";
+    if (data.trend === "improving") trendText = "📈 Improving";
+    if (data.trend === "worsening") trendText = "📉 Worsening";
+
+    trendP.textContent = "Trend: " + trendText;
+
 })
 
   .catch(() => {
