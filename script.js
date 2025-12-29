@@ -37,3 +37,66 @@ fetch(API_URL)
     statusDiv.className = "unstable";
   });
 
+
+
+
+fetch(API_URL + "/history")
+  .then(res => res.json())
+  .then(history => {
+    if (!history.length) return;
+
+    const labels = history.map(p =>
+      new Date(p.time).toLocaleTimeString()
+    );
+
+    const mapStatus = s =>
+      s === "healthy" ? 2 : s === "degraded" ? 1 : 0;
+
+    const ctx = document.getElementById("historyChart").getContext("2d");
+
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels,
+        datasets: [
+          {
+            label: "Overall",
+            data: history.map(p => mapStatus(p.overall)),
+            borderColor: "black",
+            tension: 0.3,
+          },
+          {
+            label: "Asia",
+            data: history.map(p => mapStatus(p.asia)),
+            borderColor: "orange",
+            tension: 0.3,
+          },
+          {
+            label: "Europe",
+            data: history.map(p => mapStatus(p.europe)),
+            borderColor: "green",
+            tension: 0.3,
+          },
+          {
+            label: "Americas",
+            data: history.map(p => mapStatus(p.americas)),
+            borderColor: "blue",
+            tension: 0.3,
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            ticks: {
+              callback: v => ["Unstable","Degraded","Healthy"][v]
+            },
+            min: 0,
+            max: 2
+          }
+        }
+      }
+    });
+  });
+
+
