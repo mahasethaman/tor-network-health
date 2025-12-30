@@ -1,3 +1,30 @@
+const toggleBtn = document.getElementById("themeToggle");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const savedTheme = localStorage.getItem("theme");
+
+// Apply saved or system preference
+if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+  document.body.classList.add("dark");
+  toggleBtn.textContent = "☀️ Light mode";
+}
+
+// Toggle on click
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+
+  toggleBtn.textContent = isDark ? "☀️ Light mode" : "🌙 Dark mode";
+});
+
+
+
+
+
+
+
+
 const API_URL = "https://shy-shadow-367f-tor-health-api.amanprogrammer123.workers.dev/";
 
 fetch(API_URL)
