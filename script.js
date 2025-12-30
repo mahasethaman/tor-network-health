@@ -94,16 +94,31 @@ fetch(API_URL + "/history")
         ]
       },
       options: {
-        scales: {
-          y: {
-            ticks: {
-              callback: v => ["Unstable","Degraded","Healthy"][v]
-            },
-            min: 0,
-            max: 2
-          }
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "bottom"
+    },
+    tooltip: {
+      callbacks: {
+        label: ctx => {
+          const map = ["Unstable", "Degraded", "Healthy"];
+          return ctx.dataset.label + ": " + map[ctx.parsed.y];
         }
       }
+    }
+  },
+  scales: {
+    y: {
+      ticks: {
+        callback: v => ["Unstable","Degraded","Healthy"][v]
+      },
+      min: 0,
+      max: 2
+    }
+  }
+}
+
     });
   });
 
