@@ -46,3 +46,7 @@ footer {
   color: #666;
 }
 
+canvas {
+  max-width: 100%;
+}
+
