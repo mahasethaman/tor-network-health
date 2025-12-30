@@ -68,7 +68,7 @@ ul {
 
 ul li {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px 14px;
   margin: 8px 0;
   border-radius: 8px;
