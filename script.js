@@ -76,7 +76,7 @@ fetch(API_URL + "/history")
             tension: 0.2
           },
           {
-            label: "Europe",
+            label: "Asia",
             data: history.map(p => mapStatus(p.europe)),
             borderColor: "orange",
             backgroundColor: "orange",
@@ -94,7 +94,7 @@ fetch(API_URL + "/history")
             tension: 0.2
           },
           {
-            label: "Europe",
+            label: "Americas",
             data: history.map(p => mapStatus(p.europe)),
             borderColor: "blue",
             backgroundColor: "blue",
