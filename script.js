@@ -42,8 +42,16 @@ fetch(API_URL)
 
 fetch(API_URL + "/history")
   .then(res => res.json())
+ 
   .then(history => {
-    if (!history.length) return;
+  if (history.length < 2) {
+    document.getElementById("historyChart").insertAdjacentHTML(
+      "beforebegin",
+      "<p style='color:#777;'>Collecting data… chart will fill over time.</p>"
+    );
+    return;
+  }
+
 
     const labels = history.map(p =>
       new Date(p.time).toLocaleTimeString()
