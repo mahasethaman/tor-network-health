@@ -22,9 +22,6 @@ toggleBtn.addEventListener("click", () => {
 
 
 
-
-
-
 const API_URL = "https://shy-shadow-367f-tor-health-api.amanprogrammer123.workers.dev/";
 
 fetch(API_URL)
@@ -56,6 +53,21 @@ fetch(API_URL)
 
     trendP.textContent = "Trend: " + trendText;
 
+    const adviceP = document.createElement("p");
+    adviceP.style.fontSize = "16px";
+    adviceP.style.marginTop = "10px";
+    
+    if (data.trend === "improving") {
+      adviceP.textContent = "Things are improving. You may want to try again shortly.";
+    } else if (data.trend === "worsening") {
+      adviceP.textContent = "Conditions are worsening. Waiting is recommended.";
+    } else {
+      adviceP.textContent = "Conditions are stable. Expect similar performance for now.";
+    }
+    
+    document.body.insertBefore(adviceP, document.getElementById("updated"));
+    
+    
 })
 
   .catch(() => {
@@ -65,7 +77,7 @@ fetch(API_URL)
   });
 
 
-
+////History collection for chartsss
 
 fetch(API_URL + "/history")
   .then(res => res.json())
@@ -120,6 +132,8 @@ fetch(API_URL + "/history")
           }
         ]
       },
+
+      
       options: {
   responsive: true,
   plugins: {
