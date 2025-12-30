@@ -134,3 +134,24 @@ body.dark #themeToggle {
   color: #eaeaea;
   border-color: #444;
 }
+
+/* ---------- ABOUT PAGE ---------- */
+.about-box {
+  background: #fafafa;
+  padding: 18px 20px;
+  border-radius: 10px;
+}
+
+body.dark .about-box {
+  background: #232323;
+}
+
+.about-box h2 {
+  margin-top: 0;
+}
+
+.about-box ul li {
+  justify-content: flex-start;
+  background: none;
+  padding: 6px 0;
+}
