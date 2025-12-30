@@ -173,3 +173,12 @@ body.dark .about-box {
   background: none;
   padding: 6px 0;
 }
+
+ul li span:first-child {
+  letter-spacing: 0.5px;
+}
+
+ul li span:last-child {
+  font-weight: 700;
+}
+
