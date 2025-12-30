@@ -43,7 +43,7 @@ fetch(API_URL)
 
     for (const region in data.regions) {
       const li = document.createElement("li");
-      li.textContent = `${region.toUpperCase()} : ${data.regions[region]}`;
+      li.innerHTML = `<span>${region.toUpperCase()}</span> : <span>${data.regions[region]}</span>`;
       li.className = data.regions[region];
       regionsUl.appendChild(li);
     }
