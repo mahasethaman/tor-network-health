@@ -182,3 +182,12 @@ ul li span:last-child {
   font-weight: 700;
 }
 
+ul li span:last-child {
+  font-weight: 700;
+}
+
+ul li span:last-child.healthy { color: #2e7d32; }
+ul li span:last-child.degraded { color: #ef6c00; }
+ul li span:last-child.unstable { color: #c62828; }
+
+
