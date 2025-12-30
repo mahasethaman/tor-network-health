@@ -23,7 +23,15 @@ const API_URL = "https://shy-shadow-367f-tor-health-api.amanprogrammer123.worker
 fetch(API_URL)
   .then(res => res.json())
   .then(data => {
-    document.getElementById("status").textContent = data.status.toUpperCase();
+    const statusIcons = {
+      healthy: "🟢",
+      degraded: "🟠",
+      unstable: "🔴"
+    };
+    
+    document.getElementById("status").textContent =
+      `${statusIcons[data.status]} ${data.status.toUpperCase()}`;
+
     document.getElementById("status").className = data.status;
     document.getElementById("message").textContent = data.message;
     document.getElementById("updated").textContent =
@@ -43,7 +51,18 @@ fetch(API_URL)
 
     for (const region in data.regions) {
       const li = document.createElement("li");
-      li.innerHTML = `<span>${region.toUpperCase()}</span> : <span>${data.regions[region]}</span>`;
+      const regionIcons = {
+        asia: "🌏",
+        europe: "🌍",
+        americas: "🌎"
+      };
+      
+      li.innerHTML = `
+      <span>${regionIcons[region]} ${region.toUpperCase()}</span>
+      :
+      <span class="${data.regions[region]}">${data.regions[region]}</span>
+    `;
+
       li.className = data.regions[region];
       regionsUl.appendChild(li);
     }
