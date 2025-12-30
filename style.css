@@ -50,3 +50,40 @@ canvas {
   max-width: 100%;
 }
 
+
+/* ---------- DARK MODE ---------- */
+body.dark {
+  background: #121212;
+  color: #eaeaea;
+}
+
+body.dark footer {
+  color: #aaa;
+}
+
+body.dark .healthy {
+  color: #4caf50;
+}
+
+body.dark .degraded {
+  color: #ffb74d;
+}
+
+body.dark .unstable {
+  color: #ef5350;
+}
+
+body.dark button {
+  background: #1e1e1e;
+  color: #eaeaea;
+  border: 1px solid #444;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+
