@@ -76,6 +76,24 @@ ul li {
   font-weight: 500;
 }
 
+#region li {
+  text-transform: capitalize;
+}
+
+.region-focus {
+  background: #f9fafb;
+  padding: 22px 20px;
+  border-radius: 14px;
+}
+
+body.dark .region-focus {
+  background: #202020;
+}
+
+.region-focus h2 {
+  margin-top: 0;
+}
+
 /* Chart */
 canvas {
   max-width: 100%;
