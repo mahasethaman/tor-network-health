@@ -70,37 +70,62 @@ fetch(API_URL + "/history")
             label: "Overall",
             data: history.map(p => mapStatus(p.overall)),
             borderColor: "#000",
-            tension: 0.3
+            backgroundColor: "#000",
+            borderWidth: 3,
+            pointRadius: 3,
+            tension: 0.2
           },
           {
-            label: "Asia",
-            data: history.map(p => mapStatus(p.asia)),
+            label: "Europe",
+            data: history.map(p => mapStatus(p.europe)),
             borderColor: "orange",
-            tension: 0.3
+            backgroundColor: "orange",
+            borderWidth: 3,
+            pointRadius: 3,
+            tension: 0.2
           },
           {
             label: "Europe",
             data: history.map(p => mapStatus(p.europe)),
             borderColor: "green",
-            tension: 0.3
+            backgroundColor: "green",
+            borderWidth: 3,
+            pointRadius: 3,
+            tension: 0.2
           },
           {
-            label: "Americas",
-            data: history.map(p => mapStatus(p.americas)),
+            label: "Europe",
+            data: history.map(p => mapStatus(p.europe)),
             borderColor: "blue",
-            tension: 0.3
+            backgroundColor: "blue",
+            borderWidth: 3,
+            pointRadius: 3,
+            tension: 0.2
           }
+
         ]
       },
       options: {
         scales: {
           y: {
-            min: 0,
-            max: 2,
-            ticks: {
-              callback: v => ["Unstable","Degraded","Healthy"][v]
-            }
-          }
+              min: -0.2,
+              max: 2.2,
+              ticks: {
+                callback: v => ["Unstable","Degraded","Healthy"][Math.round(v)]
+              }
+            },
+           x: {
+                grid: { color: "#eee" }
+              },
+              y: {
+                grid: { color: "#eee" },
+                min: -0.2,
+                max: 2.2,
+                ticks: {
+                  callback: v => ["Unstable","Degraded","Healthy"][Math.round(v)]
+                }
+              }
+
         },
         plugins: {
           legend: { position: "bottom" }
