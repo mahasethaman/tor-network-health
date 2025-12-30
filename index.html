@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tor Network Health</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Dark mode toggle -->
+  <button id="themeToggle">🌙 Dark mode</button>
+
+  <div class="container">
+
+    <h1>Tor Network Health</h1>
+
+    <p class="subtitle">
+      Check whether Tor is slow due to network conditions, not your device.
+    </p>
+
+    <div id="status" class="loading">Checking status…</div>
+    <p id="message"></p>
+    <p id="trend"></p>
+    <p id="updated"></p>
+
+     <div class="section region-focus">
+      <h2>Regional Status</h2>
+      <ul id="regions"></ul>
+     </div>
+
+    <div class="section">
+      <h2>Network History</h2>
+      <canvas id="historyChart" height="120"></canvas>
+
+      <p class="chart-note">
+        Healthy ↑ &nbsp; Degraded → &nbsp; Unstable ↓
+      </p>
+    </div>
+
+  </div>
+
+  <footer>
+    Uses public Tor network metadata only. No tracking. No dark web access.
+    <br>
+    <a href="about.html">About & Transparency</a>
+  </footer>
+
+  <!-- IMPORTANT: Chart.js FIRST -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
