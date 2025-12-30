@@ -87,3 +87,31 @@ button {
 }
 
 
+h1 {
+  letter-spacing: 0.5px;
+}
+
+p {
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 6px 0;
+  font-weight: 500;
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+body.dark footer {
+  border-top: 1px solid #333;
+}
+
+
